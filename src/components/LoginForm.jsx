@@ -3,7 +3,7 @@ import { AuthService } from '../services';
 import Input from './Input';
 import Button from './Button';
 
-const EMAIL_REGEX = /^[a-z0-9.]+@[a-z0-9]+.[a-z]+.([a-z]+)?$/i;
+const EMAIL_REGEX = /(.+)@(.+){2,}\.(.+){2,}/;
 
 const LoginForm = () => {
   const [emailValid, setEmailValid] = useState(true);

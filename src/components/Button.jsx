@@ -1,5 +1,6 @@
 const Button = ({
   text,
+  disabled = false,
   width = '100%',
   bgColor = '#02274F',
   textColor = '#fff',
@@ -11,7 +12,11 @@ const Button = ({
   };
 
   return (
-    <button className='button' style={elStyle}>
+    <button
+      disabled={disabled}
+      style={elStyle}
+      className={`button ${disabled ? 'button-disabled' : ''}`}
+    >
       <span>{text}</span>
     </button>
   );

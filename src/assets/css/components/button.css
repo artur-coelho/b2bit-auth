@@ -1,9 +1,15 @@
 .button {
-    padding: 8px;
-    border-radius: 6px;
-    cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button-disabled {
+  background-color: #E6E6E6 !important;
+  color: #444444 !important;
+  cursor: default !important;
 }
 
 .button span {
-    font-weight: 600;
+  font-weight: 600;
 }

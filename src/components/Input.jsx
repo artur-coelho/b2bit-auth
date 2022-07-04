@@ -17,6 +17,7 @@ const Input = ({
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
         disabled={disabled}
+        maxLength='100'
       ></input>
       {!isValid ? <span>{textValidation}</span> : ''}
     </div>

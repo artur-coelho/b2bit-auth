@@ -1,8 +1,23 @@
-const Input = ({ label, type, inputId, isValid = true, textValidation }) => {
+const Input = ({
+  inputId,
+  type,
+  label,
+  textValidation,
+  placeholder = 'Type here...',
+  isValid = true,
+  disabled = false,
+  onChange,
+}) => {
   return (
     <div className='input'>
-      <label for={inputId}>{label}</label>
-      <input type={type} id={inputId}></input>
+      <label htmlFor={inputId}>{label}</label>
+      <input
+        type={type}
+        id={inputId}
+        placeholder={placeholder}
+        onChange={(e) => onChange(e.target.value)}
+        disabled={disabled}
+      ></input>
       {!isValid ? <span>{textValidation}</span> : ''}
     </div>
   );

@@ -1,10 +1,20 @@
-const Button = ({ text, bgColor, textColor }) => {
+const Button = ({
+  text,
+  width = '100%',
+  bgColor = '#02274F',
+  textColor = '#fff',
+}) => {
   const elStyle = {
-    backgroundColor: bgColor || '#02274F',
-    color: textColor || ' #fff',
+    width,
+    backgroundColor: bgColor,
+    color: textColor,
   };
 
-  return <button style={elStyle}>{text}</button>;
+  return (
+    <button className='button' style={elStyle}>
+      <span>{text}</span>
+    </button>
+  );
 };
 
 export default Button;

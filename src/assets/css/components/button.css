@@ -1,0 +1,9 @@
+.button {
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.button span {
+    font-weight: 600;
+}

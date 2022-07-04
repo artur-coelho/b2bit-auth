@@ -1,4 +1,5 @@
 import { useState, useEffect, React } from 'react';
+import { AuthService } from '../services';
 import Input from './Input';
 import Button from './Button';
 
@@ -15,12 +16,20 @@ const LoginForm = () => {
     setEmail(value);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await AuthService.signIn({
+      email,
+      password,
+    });
+  };
+
   useEffect(() => {
     setDisabledBtn(!email || !password || !emailValid);
   }, [email, password, emailValid]);
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <Input
         inputId='login-input-email'
         type='email'
@@ -35,7 +44,7 @@ const LoginForm = () => {
         label='Password'
         onChange={(value) => setPassword(value)}
       />
-      <Button text='Sign In' disabled={disabledBtn} />
+      <Button type='submit' text='Sign In' disabled={disabledBtn} />
     </form>
   );
 };

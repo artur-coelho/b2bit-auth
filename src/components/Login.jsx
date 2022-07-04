@@ -3,7 +3,7 @@ import LoginForm from './LoginForm';
 
 const Login = () => {
   return (
-    <BaseCard>
+    <BaseCard maxWidth='350px'>
       <LoginForm />
     </BaseCard>
   );

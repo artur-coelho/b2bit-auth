@@ -4,13 +4,15 @@ const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `${localStorage.getItem('token')}`,
+    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
   },
 });
 
 axiosInstance.interceptors.response.use(null, (error) => {
-  localStorage.clear();
-  window.location.href = '/login';
+  if (error.response.status === 401) {
+    localStorage.clear();
+    window.location.href = '/login';
+  }
 });
 
 export default axiosInstance;

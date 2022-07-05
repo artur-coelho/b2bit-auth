@@ -1,19 +1,13 @@
 import axios from './api';
 
 class AuthService {
-  user;
-
-  constructor() {
-    this.user = null;
-  }
-
   signIn(data) {
     return new Promise((resolve, reject) =>
       axios
         .post('account/tokens/', data)
         .then((response) => {
-          this.user = response.data.user;
           this.setLocalStorage(response.data.tokens);
+          window.location.href = '/main/profile';
           resolve(response.data);
         })
         .catch((err) => reject(err))

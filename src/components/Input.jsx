@@ -7,6 +7,7 @@ const Input = ({
   isValid = true,
   disabled = false,
   onChange,
+  value,
 }) => {
   return (
     <div className='input'>
@@ -18,6 +19,7 @@ const Input = ({
         onChange={(e) => onChange(e.target.value)}
         disabled={disabled}
         maxLength='100'
+        value={value}
       ></input>
       {!isValid ? <span>{textValidation}</span> : ''}
     </div>

@@ -9,7 +9,10 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use(null, (error) => {
-  if (error.response.status === 401) {
+  if (
+    error.response.status === 401 &&
+    !window.location.href.includes('login')
+  ) {
     localStorage.clear();
     window.location.href = '/login';
   }

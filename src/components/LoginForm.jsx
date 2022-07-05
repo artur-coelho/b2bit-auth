@@ -10,10 +10,17 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [disabledBtn, setDisabledBtn] = useState(true);
+  const [invalidCredentials, setInvalidCredentials] = useState(false);
 
   const handleChangeEmail = (value) => {
+    setInvalidCredentials(false);
     setEmailValid(!value ? true : EMAIL_REGEX.test(value));
     setEmail(value);
+  };
+
+  const handleChangePassword = (value) => {
+    setInvalidCredentials(false);
+    setPassword(value);
   };
 
   const handleSubmit = async (e) => {
@@ -21,7 +28,7 @@ const LoginForm = () => {
     await AuthService.signIn({
       email,
       password,
-    });
+    }).catch(() => setInvalidCredentials(true));
   };
 
   useEffect(() => {
@@ -42,8 +49,15 @@ const LoginForm = () => {
         inputId='login-input-password'
         type='password'
         label='Password'
-        onChange={(value) => setPassword(value)}
+        onChange={handleChangePassword}
       />
+      {invalidCredentials ? (
+        <div className='login-error'>
+          <span>Invalid Credentials</span>
+        </div>
+      ) : (
+        ''
+      )}
       <Button type='submit' text='Sign In' disabled={disabledBtn} />
     </form>
   );

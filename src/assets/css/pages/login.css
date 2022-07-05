@@ -1,0 +1,9 @@
+.login-error {
+    margin-bottom: 16px;
+}
+
+.login-error span {
+    color: #DC3545;
+    font-size: 12px;
+    font-weight: bold;
+}

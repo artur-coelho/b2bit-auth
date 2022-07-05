@@ -13,9 +13,8 @@ const App = () => {
       <Route path='/' element={<Layout />}>
         {/* public routes */}
         <Route path='/login' element={<Login />} />
-
-        <Route path='/main' element={<Main />}>
-          <Route element={<RequireAuth />}>
+        <Route element={<RequireAuth />}>
+          <Route path='/main' element={<Main />}>
             <Route path='/main/profile' element={<Profile />} />
           </Route>
         </Route>

@@ -1,4 +1,5 @@
 import { useState, useEffect, React } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthService } from '../services';
 import Input from './Input';
 import Button from './Button';
@@ -6,6 +7,8 @@ import Button from './Button';
 const EMAIL_REGEX = /(.+)@(.+){2,}\.(.+){2,}/;
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+
   const [emailValid, setEmailValid] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,6 +24,8 @@ const LoginForm = () => {
     await AuthService.signIn({
       email,
       password,
+    }).then(() => {
+      navigate('/main', { replace: true });
     });
   };
 

@@ -8,8 +8,9 @@ const axiosInstance = axios.create({
   },
 });
 
-axiosInstance.interceptors.response.use((error) => {
-  console.log('error: ', error);
+axiosInstance.interceptors.response.use(null, (error) => {
+  localStorage.clear();
+  window.location.href = '/login';
 });
 
 export default axiosInstance;

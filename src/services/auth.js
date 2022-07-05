@@ -23,6 +23,10 @@ class AuthService {
     localStorage.setItem('accessToken', access);
     localStorage.setItem('refreshToken', refresh);
   }
+  logout() {
+    localStorage.clear();
+    window.location.href = '/login';
+  }
   accessToken() {
     return localStorage.getItem('accessToken');
   }

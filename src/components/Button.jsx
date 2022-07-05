@@ -5,6 +5,7 @@ const Button = ({
   width = '100%',
   bgColor = '#02274F',
   textColor = '#fff',
+  onClick,
 }) => {
   const elStyle = {
     width,
@@ -18,6 +19,7 @@ const Button = ({
       disabled={disabled}
       style={elStyle}
       className={`button ${disabled ? 'button-disabled' : ''}`}
+      onClick={onClick}
     >
       <span>{text}</span>
     </button>

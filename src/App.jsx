@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Main from './components/Main';
 import RequireAuth from './components/RequireAuth';
 import Profile from './components/Profile';
+import NotFound from './components/NotFound';
 
 import './App.css';
 
@@ -19,7 +20,9 @@ const App = () => {
           </Route>
         </Route>
 
-        <Route element={<Navigate to='/main' />} exact path='/'></Route>
+        <Route element={<Navigate to='/main/profile' />} exact path='/'></Route>
+
+        <Route path='*' element={<NotFound />} />
       </Route>
     </Routes>
   );

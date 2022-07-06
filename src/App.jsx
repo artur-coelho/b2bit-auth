@@ -14,6 +14,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route path='/login' element={<Login />} />
+
         <Route element={<RequireAuth />}>
           <Route path='/main' element={<Main />}>
             <Route path='/main/profile' element={<Profile />} />

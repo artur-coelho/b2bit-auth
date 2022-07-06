@@ -1,0 +1,27 @@
+.loading-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.loading-box span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #02274F;
+  margin-top: 16px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

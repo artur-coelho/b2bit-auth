@@ -1,0 +1,28 @@
+.button {
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.button span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.button:not(.button-disabled):hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.button-disabled {
+  border: 1px solid #999999 !important;
+  background-color: #cccccc !important;
+  color: #666666 !important;
+  cursor: default !important;
+}
+
+.button span {
+  font-weight: 600;
+}

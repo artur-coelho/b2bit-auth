@@ -14,7 +14,7 @@ axiosInstance.interceptors.response.use(null, (error) => {
     !window.location.href.includes('login')
   ) {
     localStorage.clear();
-    window.location.href = '/login';
+    window.location.href = '/expired';
   }
 });
 

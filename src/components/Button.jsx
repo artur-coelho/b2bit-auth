@@ -1,3 +1,5 @@
+import Loading from './Loading';
+
 const Button = ({
   text,
   type = 'button',
@@ -6,6 +8,7 @@ const Button = ({
   bgColor = '#02274F',
   textColor = '#fff',
   onClick,
+  loading = false,
 }) => {
   const elStyle = {
     width,
@@ -13,7 +16,7 @@ const Button = ({
     color: textColor,
   };
 
-  return (
+  return !loading ? (
     <button
       type={type}
       disabled={disabled}
@@ -22,6 +25,10 @@ const Button = ({
       onClick={onClick}
     >
       <span>{text}</span>
+    </button>
+  ) : (
+    <button style={elStyle} disabled={true} className='button button-disabled'>
+      <Loading size='16px' borderSize='4px' withText={false} />
     </button>
   );
 };

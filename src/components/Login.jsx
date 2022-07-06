@@ -6,7 +6,9 @@ import LOGOIMG from '../assets/images/logo.svg';
 const Login = () => {
   return (
     <BaseCard maxWidth='438px'>
-      <img className='logo-img' alt='b2bit logo' src={LOGOIMG}></img>
+      <div className='logo-container'>
+        <img alt='b2bit logo' src={LOGOIMG}></img>
+      </div>
       <LoginForm />
     </BaseCard>
   );
